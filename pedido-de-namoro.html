@@ -6,9 +6,9 @@
     <title>Pedido de Namoro</title>
     <style>
         body {
-            background-color: #ffffff;
+            background-color: #f8f8f8;
             text-align: center;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
         }
 
         .container {
@@ -30,8 +30,17 @@
             color: #fff;
             background-color: #000000;
             border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
             cursor: pointer;
             position: absolute;
+        }
+
+        #resposta {
+            display: none;
+            font-size: 20px;
+            color: #ff3366;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -43,12 +52,13 @@
         <p>Você aceita namorar comigo?</p>
         <p class="heart" onclick="mostrarResposta()">❤️</p>
         <button id="nao" onmouseover="mudarPosicao()">Não</button>
-        <p id="resposta" style="display: none;"></p>
+        <p id="resposta"></p>
     </div>
     <script>
         function mostrarResposta() {
-            document.getElementById('resposta').style.display = 'block';
-            document.getElementById('resposta').innerHTML = 'Sim! Eu aceito, meu amor. ❤️';
+            const resposta = document.getElementById('resposta');
+            resposta.style.display = 'block';
+            resposta.innerHTML = 'Sim! Eu aceito, meu amor. ❤️';
         }
 
         function mudarPosicao() {
