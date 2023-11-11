@@ -45,18 +45,29 @@
             color: #ff3366;
             margin-top: 20px;
         }
+
+        #nome {
+            font-size: 18px;
+            color: #333;
+            margin-top: 20px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Pra pessoa mais especial desse mundo</h1>
-        <p>Oi mi vida ❤️</p>
+        <p>Oi mi vida ❤️,</p>
         <p>Já faz um tempo que quero te dizer isso...</p>
         <p>Você quer namorar comigo?</p>
         <p class="heart" onclick="mostrarResposta()">❤️</p>
         <button id="nao" onmouseover="mudarPosicao()">Não</button>
         <p id="resposta"></p>
     </div>
+    <p id="nome">Paulo Devinky - Dono do Site</p>
     <script>
         function mostrarResposta() {
             const resposta = document.getElementById('resposta');
