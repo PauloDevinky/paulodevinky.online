@@ -41,17 +41,3 @@ function generateBarcodes() {
         alert("Erro: A biblioteca JsBarcode não está carregada corretamente.");
     }
 }
-
-// Função para calcular o dígito verificador EAN-13
-function calculateEAN13CheckDigit(barcodeValue) {
-    var sum = 0;
-    for (var i = 0; i < barcodeValue.length; i++) {
-        var digit = parseInt(barcodeValue[i]);
-        sum += i % 2 === 0 ? digit : digit * 3;
-    }
-    var checkDigit = (10 - (sum % 10)) % 10;
-    return checkDigit.toString();
-}
-
-// Adiciona um ouvinte de evento ao botão
-document.getElementById("generateButton").addEventListener("click", generateBarcodes);
