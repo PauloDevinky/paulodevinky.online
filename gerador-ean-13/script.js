@@ -13,25 +13,25 @@ function generateBarcodes() {
     return;
   }
 
-  for (var i = 0; i < inputQuantity; i++) {
-    var baseCode = "789" + inputDigits;
-    var fullCode = baseCode + (i + 1).toString().padStart(4, '0');
-    var checkDigit = calculateEAN13CheckDigit(fullCode);
-    var barcodeValue = fullCode + checkDigit;
+  // Adicionando console.log para verificar se JsBarcode está definida
+  console.log("JsBarcode:", JsBarcode);
 
-    // Adicionando console.log para verificar se JsBarcode está definida
-    console.log("JsBarcode:", JsBarcode);
+  // Certifique-se de que a variável JsBarcode seja uma função antes de chamá-la
+  if (typeof JsBarcode === 'function') {
+    for (var i = 0; i < inputQuantity; i++) {
+      var baseCode = "789" + inputDigits;
+      var fullCode = baseCode + (i + 1).toString().padStart(4, '0');
+      var checkDigit = calculateEAN13CheckDigit(fullCode);
+      var barcodeValue = fullCode + checkDigit;
 
-    // Certifique-se de que a variável JsBarcode seja uma função antes de chamá-la
-    if (typeof JsBarcode === 'function') {
       JsBarcode(barcodeSvg, barcodeValue, {
         format: "EAN13",
         displayValue: true
       });
 
       barcodeSvg.innerHTML += "<br>";
-    } else {
-      alert("Erro: A biblioteca JsBarcode não está carregada corretamente.");
     }
+  } else {
+    alert("Erro: A biblioteca JsBarcode não está carregada corretamente.");
   }
 }
