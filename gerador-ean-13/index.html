@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Códigos EAN-13</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <h1>Gerador de Códigos EAN-13</h1>
+    <p>Preencha o formulário abaixo para gerar códigos EAN-13.</p>
+
+    <form id="barcodeForm">
+        <label for="inputDigits">Digite 5 dígitos do CPF ou CNPJ:</label>
+        <input type="text" id="inputDigits" maxlength="5" required>
+
+        <label for="inputQuantity">Quantidade de códigos desejada:</label>
+        <input type="number" id="inputQuantity" min="1" required>
+
+        <button type="button" onclick="generateBarcodes()">Gerar Códigos</button>
+    </form>
+
+    <!-- Use um elemento específico (como um SVG) para os códigos de barras -->
+    <div id="barcodeOutput">
+        <svg id="barcodeSvg"></svg>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
