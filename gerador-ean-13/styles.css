@@ -55,3 +55,11 @@ button:hover {
   font-size: 18px;
   color: #fff;
 }
+
+/* styles.css */
+
+.subtitle {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #ccc; /* Cor do texto do subtítulo */
+}
