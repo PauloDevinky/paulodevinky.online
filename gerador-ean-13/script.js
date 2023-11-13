@@ -29,7 +29,44 @@ function generateBarcodes() {
 }
 
 function calculateEAN13CheckDigit(code) {
-  // Lógica para calcular o dígito verificador EAN-13
-  // Implemente ou adicione a lógica conforme necessário
-  return 'X';
+  // Certifique-se de que o código fornecido tem 12 dígitos
+  if (code.length !== 12) {
+    throw new Error("O código deve ter exatamente 12 dígitos.");
+  }
+
+  // Converte o código em uma matriz de dígitos
+  var digits = code.split("").map(Number);
+
+  // Calcula a soma dos dígitos nas posições ímpares
+  var oddSum = digits
+    .filter(function (_, index) {
+      return index % 2 === 0;
+    })
+    .reduce(function (sum, digit) {
+      return sum + digit;
+    }, 0);
+
+  // Multiplica a soma por 3
+  oddSum *= 3;
+
+  // Calcula a soma dos dígitos nas posições pares
+  var evenSum = digits
+    .filter(function (_, index) {
+      return index % 2 !== 0;
+    })
+    .reduce(function (sum, digit) {
+      return sum + digit;
+    }, 0);
+
+  // Calcula a soma total
+  var totalSum = oddSum + evenSum;
+
+  // Encontra o próximo múltiplo de 10
+  var nextMultipleOfTen = Math.ceil(totalSum / 10) * 10;
+
+  // Calcula o dígito verificador
+  var checkDigit = nextMultipleOfTen - totalSum;
+
+  // Retorna o dígito verificador como string
+  return checkDigit.toString();
 }
