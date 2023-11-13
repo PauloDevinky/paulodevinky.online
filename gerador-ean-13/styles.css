@@ -1,11 +1,18 @@
 /* styles.css */
 
-/* Adicione estilos conforme necessário */
 body {
-  background-color: #1a1a1a;
+  background-color: #000;
   color: #fff;
   font-family: 'Arial', sans-serif;
   padding: 20px;
+}
+
+.container {
+  text-align: center;
+}
+
+h1 {
+  color: #fff;
 }
 
 form {
@@ -30,16 +37,17 @@ input {
 }
 
 button {
-  background-color: #4caf50;
+  background-color: #800000; /* Cor Marsala */
   color: #fff;
   padding: 12px 20px;
   border: none;
   cursor: pointer;
+  border-radius: 5px; /* Botão arredondado */
   transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #5a0000; /* Cor mais escura para o efeito de hover */
 }
 
 #barcodeSvg {
