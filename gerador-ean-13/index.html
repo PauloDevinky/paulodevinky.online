@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerador de Códigos EAN-13</title>
     <script src="JsBarcode.all.min.js"></script>
+    <script src="script.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
@@ -18,7 +19,7 @@
         <label for="inputQuantity">Quantidade de códigos desejada:</label>
         <input type="number" id="inputQuantity" min="1" required>
 
-        <button type="button" onclick="generateBarcodes()">Gerar Códigos</button>
+        <button type="button" id="generateButton">Gerar Códigos</button>
     </form>
 
     <!-- Use um elemento específico (como um SVG) para os códigos de barras -->
@@ -26,6 +27,8 @@
         <svg id="barcodeSvg"></svg>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        document.getElementById("generateButton").addEventListener("click", generateBarcodes);
+    </script>
 </body>
 </html>
