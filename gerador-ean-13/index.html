@@ -11,21 +11,23 @@
 </head>
 
 <body>
-  <h1>Gerador de Códigos EAN-13</h1>
+  <div class="container">
+    <h1>Gerador de Códigos EAN-13</h1>
 
-  <form>
-    <label for="inputDigits">Digite 5 dígitos do CPF ou CNPJ:</label>
-    <input type="text" id="inputDigits" maxlength="5" required>
+    <form>
+      <label for="inputDigits">Digite 5 dígitos do CPF ou CNPJ:</label>
+      <input type="text" id="inputDigits" maxlength="5" required>
 
-    <label for="inputQuantity">Quantidade de códigos desejada:</label>
-    <input type="number" id="inputQuantity" min="1" value="1" required>
+      <label for="inputQuantity">Quantidade de códigos desejada:</label>
+      <input type="number" id="inputQuantity" min="1" value="1" required>
 
-    <button type="button" id="generateButton">Gerar Códigos</button>
-  </form>
+      <button type="button" id="generateButton">Gerar Códigos</button>
+    </form>
 
-  <svg id="barcodeSvg"></svg>
+    <svg id="barcodeSvg"></svg>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
+  </div>
 </body>
 
 </html>
