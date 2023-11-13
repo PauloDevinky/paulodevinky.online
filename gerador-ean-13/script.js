@@ -28,6 +28,7 @@ function generateBarcodes() {
             // Adicione o 13º dígito ao código completo
             var barcodeValue = fullCode + checkDigit;
 
+            // Certifique-se de que a variável barcodeSvg seja uma referência válida a um elemento SVG
             JsBarcode(barcodeSvg, barcodeValue, {
                 format: "EAN13",
                 displayValue: true
