@@ -6,8 +6,10 @@ function generateBarcodes() {
     // Limpar códigos anteriores
     barcodeSvg.innerHTML = "";
 
-    if (!/^\d{5}$/.test(inputDigits)) {
-        alert("Digite 5 dígitos válidos do CPF ou CNPJ.");
+    // Remover caracteres não numéricos e garantir que o comprimento seja de 12 ou 13 dígitos
+    inputDigits = inputDigits.replace(/\D/g, ''); // Remove caracteres não numéricos
+    if (inputDigits.length < 12 || inputDigits.length > 13) {
+        alert("Digite 12 ou 13 dígitos válidos do CPF ou CNPJ.");
         return;
     }
 
@@ -15,7 +17,7 @@ function generateBarcodes() {
     if (typeof JsBarcode !== 'undefined') {
         for (var i = 0; i < inputQuantity; i++) {
             // Gere o código EAN-13 usando JsBarcode
-            var barcodeValue = inputDigits + i;
+            var barcodeValue = inputDigits;
 
             JsBarcode(barcodeSvg, barcodeValue, {
                 format: "EAN13",
