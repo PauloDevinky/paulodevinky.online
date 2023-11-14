@@ -1,63 +1,35 @@
-/* styles.css */
+function generateBarcodes() {
+  var inputDigits = document.getElementById("inputDigits").value;
+  var inputQuantity = document.getElementById("inputQuantity").value;
+  var barcodeSvg = document.getElementById("barcodeSvg");
 
-body {
-  background-color: #000;
-  color: #fff;
-  font-family: 'Arial', sans-serif;
-  padding: 20px;
-}
+  // Limpar códigos anteriores
+  barcodeSvg.innerHTML = "";
 
-.container {
-  text-align: center;
-}
+  // Remover caracteres não numéricos e garantir que o comprimento seja de 5 dígitos
+  inputDigits = inputDigits.replace(/\D/g, ''); // Remove caracteres não numéricos
+  if (inputDigits.length !== 5) {
+    alert("Digite 5 dígitos válidos do CPF ou CNPJ.");
+    return;
+  }
 
-h1 {
-  color: #fff;
-}
+  // Recuperar o último número gerado do localStorage
+  var lastGeneratedNumber = parseInt(localStorage.getItem("lastGeneratedNumber")) || 0;
 
-.subtitle {
-  margin-bottom: 20px;
-  font-size: 16px;
-  color: #ccc;
-}
+  for (var i = 0; i < inputQuantity; i++) {
+    var baseCode = "789" + inputDigits;
+    var fullCode = baseCode + (lastGeneratedNumber + 1 + i).toString().padStart(4, '0');
+    var checkDigit = calculateEAN13CheckDigit(fullCode);
+    var barcodeValue = fullCode + checkDigit;
 
-form {
-  max-width: 400px;
-  margin: 0 auto;
-}
+    JsBarcode(barcodeSvg, barcodeValue, {
+      format: "EAN13",
+      displayValue: true
+    });
 
-label {
-  display: block;
-  margin-bottom: 8px;
-  color: #aaa;
-}
+    barcodeSvg.innerHTML += "<br>";
+  }
 
-input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 16px;
-  box-sizing: border-box;
-  background-color: #333;
-  border: 1px solid #555;
-  color: #fff;
-}
-
-button {
-  background-color: #800000;
-  color: #fff;
-  padding: 12px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #5a0000;
-}
-
-#barcodeOutput {
-  margin-top: 20px;
-  font-size: 18px;
-  color: #fff;
+  // Atualizar o último número gerado no localStorage
+  localStorage.setItem("lastGeneratedNumber", lastGeneratedNumber + inputQuantity);
 }
