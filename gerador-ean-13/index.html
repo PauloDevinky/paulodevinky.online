@@ -1,6 +1,7 @@
+<!-- index.html -->
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +10,6 @@
   <script src="eanGenerator.js"></script>
   <title>Gerador de Códigos EAN-13</title>
 </head>
-
 <body>
   <div class="container">
     <div class="logo-container">
@@ -22,14 +22,13 @@
       <input type="text" id="inputDigits" maxlength="5" required>
       <label for="inputQuantity">Quantidade de códigos desejada:</label>
       <input type="number" id="inputQuantity" min="1" max="50" value="1" required>
-      <button type="button" id="generateButton">Gerar Códigos</button>
+      <button type="button" id="generateButton" onclick="generateBarcodes()">Gerar Códigos</button>
     </form>
-    <svg id="barcodeSvg"></svg>
+    <div id="barcodeContainer"></div>
   </div>
   <footer>
     <p>Paulo Devinky</p>
   </footer>
   <script src="script.js"></script>
 </body>
-
 </html>
