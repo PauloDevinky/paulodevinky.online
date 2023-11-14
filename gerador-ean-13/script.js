@@ -1,31 +1,63 @@
-// script.js
+/* styles.css */
 
-document.getElementById("generateButton").addEventListener("click", generateBarcodes);
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+}
 
-function generateBarcodes() {
-  var inputDigits = document.getElementById("inputDigits").value;
-  var inputQuantity = document.getElementById("inputQuantity").value;
-  var barcodeOutput = document.getElementById("barcodeOutput");
+.container {
+  text-align: center;
+}
 
-  // Limpar códigos anteriores
-  barcodeOutput.innerHTML = "";
+h1 {
+  color: #fff;
+}
 
-  // Remover caracteres não numéricos e garantir que o comprimento seja de 5 dígitos
-  inputDigits = inputDigits.replace(/\D/g, ''); // Remove caracteres não numéricos
-  if (inputDigits.length !== 5) {
-    alert("Digite 5 dígitos válidos do CPF ou CNPJ.");
-    return;
-  }
+.subtitle {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #ccc;
+}
 
-  for (var i = 0; i < inputQuantity; i++) {
-    try {
-      var barcodeValue = generateEAN13(inputDigits, i);
+form {
+  max-width: 400px;
+  margin: 0 auto;
+}
 
-      // Adicione os códigos gerados ao elemento de saída
-      barcodeOutput.innerHTML += barcodeValue + "<br>";
-    } catch (error) {
-      alert(error.message);
-      return;
-    }
-  }
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #aaa;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  background-color: #333;
+  border: 1px solid #555;
+  color: #fff;
+}
+
+button {
+  background-color: #800000;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #5a0000;
+}
+
+#barcodeOutput {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #fff;
 }
