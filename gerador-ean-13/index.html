@@ -1,63 +1,32 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8">
-
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="caminho/para/seu/arquivo/styles.css">
-
   <script src="eanGenerator.js"></script>
-
   <title>Gerador de Códigos EAN-13</title>
-
 </head>
-
 <body>
-
   <div class="container">
-
     <div class="logo-container">
-
       <!-- Coloque sua logo aqui -->
-
     </div>
-
     <h1>Gerador de Códigos EAN-13</h1>
-
     <p class="subtitle">Gere códigos exclusivos usando os 5 dígitos do CPF ou CNPJ.</p>
-
     <form>
-
       <label for="inputDigits">Digite 5 dígitos do CPF ou CNPJ:</label>
-
       <input type="text" id="inputDigits" maxlength="5" required>
-
       <label for="inputQuantity">Quantidade de códigos desejada:</label>
-
       <input type="number" id="inputQuantity" min="1" max="50" value="1" required>
-
       <button type="button" onclick="generateBarcodes()">Gerar Códigos</button>
-
     </form>
-
     <div id="barcodeContainer"></div>
-
   </div>
-
   <footer>
-
     <p>Paulo Devinky</p>
-
   </footer>
-
   <script src="script.js"></script>
-
 </body>
-
 </html>
