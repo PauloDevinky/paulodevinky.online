@@ -24,14 +24,17 @@ function generateBarcodes() {
     var checkDigit = calculateEAN13CheckDigit(fullCode);
     var barcodeValue = fullCode + checkDigit;
 
-    // Adicionar cada código gerado ao container
-    var barcodeDiv = document.createElement("div");
-    barcodeDiv.textContent = barcodeValue;
-    barcodeContainer.appendChild(barcodeDiv);
+    // Adicionar o código ao container
+    var barcodeElement = document.createElement("div");
+    barcodeElement.textContent = barcodeValue;
+    barcodeContainer.appendChild(barcodeElement);
   }
 
   // Atualizar o último número gerado no localStorage
   localStorage.setItem("lastGeneratedNumber", lastGeneratedNumber + inputQuantity);
 }
 
-// Restante do seu script...
+// Função para calcular o dígito verificador EAN-13
+function calculateEAN13CheckDigit(code) {
+  // ... (mesma lógica que você já tem)
+}
